@@ -1,4 +1,6 @@
-
 #!/usr/bin/env ruby
-#require enr
-#initialise cli class and start method
+
+require "bundler/setup"
+require "lib/jimmy_journey"
+
+jimmy_jouney::CLI.new.call
