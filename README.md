@@ -1,8 +1,6 @@
-# JimmyJourney
+# JimmyJourney - NW MT News Edition
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/jimmy_journey`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+The purpose of this gem is to give the user the opportunity to browse and explore news from the Flathead Valley, MT. 
 
 ## Installation
 
