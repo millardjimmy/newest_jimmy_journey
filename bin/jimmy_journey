@@ -3,4 +3,4 @@
 require "bundler/setup"
 require "lib/jimmy_journey"
 
-jimmy_jouney::CLI.new.call
+jimmy_jouney::Cli.new.run
