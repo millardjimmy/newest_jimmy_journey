@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "lib/jimmy_journey"
+require_relative "./lib/environment"
 
-jimmy_jouney::Cli.new.run
+ jimmy_journey::CLI.new
