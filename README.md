@@ -1,6 +1,6 @@
-# JimmyJourney - NW MT News Edition
+# JimmyJourney - LOTR EDITION
 
-The purpose of this gem is to give the user the opportunity to browse and explore news from the Flathead Valley, MT. 
+This gem is out to help folks learn about Lord of the Rings, from media to lore!
 
 ## Installation
 
