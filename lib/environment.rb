@@ -1,13 +1,13 @@
 
-#all gems go here
-require "Nokogiri"
-require "Pry"
-require "Open-uri"
-require "rubygem"
+#all gems go here, not on each file
+require "nokogiri"
+require "pry"
+require "open-uri"
 require "httparty"
+require "colorize"
 
-require_relative 'book.rb'
-require_relative 'characters.rb'
-require_relative 'movies.rb'
-require_relative 'quote.rb'
-require_relative "api.rb"
+require_relative 'jimmy_journey/book.rb'
+require_relative 'jimmy_journey/characters.rb'
+require_relative 'jimmy_journey/movies.rb'
+require_relative 'jimmy_journey/quote.rb'
+require_relative "jimmy_journey/cli.rb"
