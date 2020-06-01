@@ -1,16 +1,14 @@
+#require "jimmyjourney/version"
 
-#all gems go here, not on each file
-require "nokogiri"
-require "pry"
-require "open-uri"
-require "httparty"
-require "colorize"
-
-require_relative './jimmyjourney/movie.rb'
-require_relative './jimmyjourney/scraper.rb'
-require_relative './jimmyjourney/cli.rb'
-require_relative './lib/version.rb'
-
-module JimmyJourney  
-    class Error < StandardError; end 
+module JimmyJourney
 end
+
+require 'open-uri'
+require 'pry'
+require 'nokogiri'
+require 'colorize'
+
+require_relative "jimmyjourney/cli"
+require_relative "jimmyjourney/book"
+require_relative "jimmyjourney/scraper"
+require_relative "jimmyjourney/version"

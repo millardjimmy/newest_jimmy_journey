@@ -1,25 +1,93 @@
-require "pry"
+require 'open-uri'
+require 'pry'
+require 'nokogiri'
+require 'colorize'
 
-class JimmyJourney::CLI
+require_relative "jimmyjourney/cli"
+require_relative "jimmyjourney/book"
+require_relative "jimmyjourney/scraper"
+require_relative "jimmyjourney/version"
+
+
+  class CLI
+
     def call
-        puts "                "
-        puts ">>>>---------------- ·Hello viewer!· ---------------->".colorize(:blue)
-        puts "               Check out these great titles           "
-        puts "                "
-        getmovies
-        start
+      Scraper.new.make_books
+      list_books
+      menu
     end
+
 
     def start
-        print_movies
+      puts " "
+      puts " "
+      puts "--------------".colorize(:red) >>>----- "WELCOME TO THE BOOKSHELF" -----> "--------------".colorize(:red)
+      puts "Welcome!"
+      main_menu
+    end
+  
+    def main_menu
+        puts " "
+        puts "Which list would you like to see?"
+        puts " "
+        puts "1. ".colorize(:light_blue) + "Fiction"
+        puts "2. ".colorize(:light_blue) + "Nonfiction"
+        input = gets.chomp
+        input == "exit" ? goodbye : choose_list(input)
+      end
+    
+      def choose_list(input)
+        if input == "1" || input == "nonfiction"
+          @mode = Scraper.nonfiction
+          list_books
+        elsif input == "2" || input == "fiction"
+          @mode = Scraper.fiction
+          list_books
+        else
+          main_menu
+        end
+      end
+    end
+
+    def list_books
+      @books = Book.all
+      @books.each.with_index(1) do |book, i|
+        puts "#{i}.#{book.title} - #{book.author}"
+        puts "------------"
+      end
+      puts "      "
+      puts "      "
+    end
+
+    def menu
+      input = ""
+      while input != "exit"
+        puts "Please, enter the associated number for the book you would like to see, or simply type 'list':"
+        puts "      "
+        puts "At any time, you may press exit to end this program"
+        puts "      "
+        input = gets.strip
+      end
+        if input.to_i > 0 && input.to_i <= @books.length
+          book = Book.find_by_index(input.to_i-1)
+          puts "#{book.title} by: #{book.author}, ranked: #{book.rank}"
+          puts "If you'd like to know more, type more or back to check out our list again:"
+        elsif input == "back"
+          list_books
+        elsif input == "more"
+          puts "#{book.summary}"
+        elsif input == "exit"
+          goodbye
+        else
+          puts "invalid input, please type 'more', 'back', or 'exit'"
+        end
+      end
     end
 
 
-    def get_movies
-        movies = JimmyJourney::Scraper.scrape_movies
+    def goodbye
+      puts "Thanks for reading! I'll be on the shelf!"
     end
+  end
 
-   def print_movies
-        JimmyJourney::Movie.all.each.with_index(1) do |movie, i|
-        puts "#{index} - #{movie.name}"
-   end
+end
