@@ -91,7 +91,9 @@ class CLI
 
 
     def goodbye
+      puts "-----------------------------------------".colorize(:black ).colorize(:background => :white)
       puts "Thanks for reading! I'll be on the shelf!".colorize(:black ).colorize(:background => :white)
+      puts "-----------------------------------------".colorize(:black ).colorize(:background => :white)
     end
   
 
