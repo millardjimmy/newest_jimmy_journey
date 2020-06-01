@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 
-require_relative "../lib/environment"
+require_relative "../lib/jimmyjourney.rb"
 
-Jimmyjourney::CLI.new.call
+
+JimmyJourney::CLI.new.call

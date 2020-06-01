@@ -19,12 +19,3 @@ class JimmyJourney::Scraper
     end
 
 end
-
-
-
-
-
-#   puts name
-#   puts year
-
-# end

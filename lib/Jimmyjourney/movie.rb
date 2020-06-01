@@ -1,4 +1,4 @@
-class Jimmyjourney::Movie
+class JimmyJourney::Movie
     attr_accessor :name, :year, :director, :actors
 
     @@all = []

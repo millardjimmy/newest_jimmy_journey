@@ -1,6 +1,6 @@
 require "pry"
 
-class Jimmyjourney::CLI
+class JimmyJourney::CLI
     def call
         puts "                "
         puts ">>>>---------------- ·Hello viewer!· ---------------->".colorize(:blue)
@@ -16,10 +16,10 @@ class Jimmyjourney::CLI
 
 
     def get_movies
-        movies = Jimmyjourney::Scraper.scrape_movies
+        movies = JimmyJourney::Scraper.scrape_movies
     end
 
    def print_movies
-        Jimmyjourney::Movie.all.each.with_index(1) do |movie, i|
+        JimmyJourney::Movie.all.each.with_index(1) do |movie, i|
         puts "#{index} - #{movie.name}"
    end
