@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-once you begin this gem, you will be prompted to selec from one of fifty non-fiction books. As soon as you make your selection, you are given the opportunity to read a small summary. You may do so as many times as you'd like!
+Once you begin this gem, you will be prompted to select from one of fifty non-fiction books. As soon as you make your selection, you are given the opportunity to read a small summary. You may do so as many times as would like!
 
 ## Development
 
