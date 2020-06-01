@@ -1,6 +1,6 @@
-# JimmyJourney - LOTR EDITION
+# JimmyJourney - The Bookshelf
 
-This gem is out to help folks learn about Lord of the Rings, from media to lore!
+This gem is intended as a reference guide to popular non-fiction books
 
 ## Installation
 
@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+once you begin this gem, you will be prompted to selec from one of fifty non-fiction books. As soon as you make your selection, you are given the opportunity to read a small summary. You may do so as many times as you'd like!
 
 ## Development
 
