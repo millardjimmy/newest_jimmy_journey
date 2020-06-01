@@ -67,9 +67,9 @@ class CLI
       input = ""
       while input != "exit"
         puts "      "
-        puts "Please, enter the associated number for the book you would like to see, or simply type 'list':".colorize(:blue)
+        puts "Please, enter the associated number for the book you would like to see, or simply type 'list':".colorize(:light_blue)
         puts "      "
-        puts "At any time, you may press exit to end this program".colorize(:blue)
+        puts "At any time, you may press exit to end this program".colorize(:light_blue)
         puts "      "
         input = gets.strip
       
@@ -84,7 +84,7 @@ class CLI
         elsif input == "exit"
           goodbye
         else
-          puts "invalid input, please type 'more', 'back', or 'exit' to end the program"
+          puts "invalid input, please type 'more', 'list' or 'exit' to end the program"
         end
       end
     end
