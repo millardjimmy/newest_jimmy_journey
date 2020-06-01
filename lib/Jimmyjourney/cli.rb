@@ -3,17 +3,17 @@ require 'pry'
 require 'nokogiri'
 require 'colorize'
 
-require_relative "jimmyjourney/cli"
-require_relative "jimmyjourney/book"
-require_relative "jimmyjourney/scraper"
-require_relative "jimmyjourney/version"
+require_relative "./book"
+require_relative "./scraper"
+require_relative "./version"
 
 
-  class CLI
+class CLI
 
     def call
       Scraper.new.make_books
-      list_books
+      start
+      #list_books
       menu
     end
 
@@ -21,39 +21,43 @@ require_relative "jimmyjourney/version"
     def start
       puts " "
       puts " "
-      puts "--------------".colorize(:red) >>>----- "WELCOME TO THE BOOKSHELF" -----> "--------------".colorize(:red)
-      puts "Welcome!"
-      main_menu
+      puts "--------------WELCOME TO THE BOOKSHELF--------------".colorize(:red)
+      puts " "
+      puts " "
+      puts "Please select an associated number from the coming list"
+      #main_menu
+      sleep(3)
+      list_books
     end
   
-    def main_menu
-        puts " "
-        puts "Which list would you like to see?"
-        puts " "
-        puts "1. ".colorize(:light_blue) + "Fiction"
-        puts "2. ".colorize(:light_blue) + "Nonfiction"
-        input = gets.chomp
-        input == "exit" ? goodbye : choose_list(input)
-      end
+    # def main_menu
+    #     puts " "
+    #     puts "Which list would you like to see?"
+    #     puts " "
+    #     puts "1. ".colorize(:light_blue) + "Fiction"
+    #     puts "2. ".colorize(:light_blue) + "Nonfiction"
+    #     input = gets.chomp
+    #     input == "exit" ? goodbye : choose_list(input)
+    #   end
     
-      def choose_list(input)
-        if input == "1" || input == "nonfiction"
-          @mode = Scraper.nonfiction
-          list_books
-        elsif input == "2" || input == "fiction"
-          @mode = Scraper.fiction
-          list_books
-        else
-          main_menu
-        end
-      end
-    end
+      # def choose_list(input)
+      #   if input == "1" || input == "nonfiction"
+      #     @mode = Scraper.nonfiction
+      #     list_books
+      #   elsif input == "2" || input == "fiction"
+      #     @mode = Scraper.fiction
+      #     list_books
+      #   else
+      #     main_menu
+      #   end
+      # end
+    
 
     def list_books
       @books = Book.all
       @books.each.with_index(1) do |book, i|
-        puts "#{i}.#{book.title} - #{book.author}"
-        puts "------------"
+        puts "#{i}.#{book.title} - #{book.author}" 
+        #puts "------------"
       end
       puts "      "
       puts "      "
@@ -62,32 +66,33 @@ require_relative "jimmyjourney/version"
     def menu
       input = ""
       while input != "exit"
-        puts "Please, enter the associated number for the book you would like to see, or simply type 'list':"
         puts "      "
-        puts "At any time, you may press exit to end this program"
+        puts "Please, enter the associated number for the book you would like to see, or simply type 'list':".colorize(:blue)
+        puts "      "
+        puts "At any time, you may press exit to end this program".colorize(:blue)
         puts "      "
         input = gets.strip
-      end
+      
         if input.to_i > 0 && input.to_i <= @books.length
           book = Book.find_by_index(input.to_i-1)
           puts "#{book.title} by: #{book.author}, ranked: #{book.rank}"
-          puts "If you'd like to know more, type more or back to check out our list again:"
-        elsif input == "back"
+          puts "If you'd like to know more, type more or list to check out our list again:".colorize(:green)
+        elsif input == "list"
           list_books
         elsif input == "more"
           puts "#{book.summary}"
         elsif input == "exit"
           goodbye
         else
-          puts "invalid input, please type 'more', 'back', or 'exit'"
+          puts "invalid input, please type 'more', 'back', or 'exit' to end the program"
         end
       end
     end
 
 
     def goodbye
-      puts "Thanks for reading! I'll be on the shelf!"
+      puts "Thanks for reading! I'll be on the shelf!".colorize(:black ).colorize(:background => :white)
     end
-  end
+  
 
 end

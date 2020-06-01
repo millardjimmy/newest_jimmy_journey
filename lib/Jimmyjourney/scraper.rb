@@ -1,22 +1,21 @@
 require 'open-uri'
-require 'nokogiri'
-require 'open-uri'
 require 'pry'
 require 'nokogiri'
 require 'colorize'
 
-require_relative "jimmyjourney/cli"
-require_relative "jimmyjourney/book"
-require_relative "jimmyjourney/scraper"
-require_relative "jimmyjourney/version"
+require_relative "./cli"
+require_relative "./book"
+require_relative "./version"
 
 class Scraper
 
+  
   def get_page
-    fiction_or_nonfiction = {}
-    fiction_or_nonfiction[:nonfiction] = Nokogiri::HTML(open("https://thegreatestbooks.org/nonfiction"))
-    fiction_or_nonfiction[:fiction] = Nokogiri::HTML(open("https://thegreatestbooks.org/"))
-    return fiction_or_nonfiction
+    # fiction_or_nonfiction = {}
+    # fiction_or_nonfiction[:nonfiction] = 
+    Nokogiri::HTML(open("https://thegreatestbooks.org/nonfiction"))
+    # fiction_or_nonfiction[:fiction] = Nokogiri::HTML(open("https://thegreatestbooks.org/"))
+    # return fiction_or_nonfiction
   end
 
   def scrape_books_index
@@ -26,6 +25,8 @@ class Scraper
   def make_books
     scrape_books_index.uniq.each do |b|
     Book.new_from_index_page(b)
+    # scrape_books_index(get_page[:nonfiction]).each do |b| Book.new_from_index_page(b) 
+    # scrape_books_index(get_page[:fiction]).each do  |b| Book.new_from_index_page(b) 
     end
   end
 

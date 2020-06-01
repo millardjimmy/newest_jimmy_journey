@@ -3,10 +3,9 @@ require 'pry'
 require 'nokogiri'
 require 'colorize'
 
-require_relative "jimmyjourney/cli"
-require_relative "jimmyjourney/book"
-require_relative "jimmyjourney/scraper"
-require_relative "jimmyjourney/version"
+require_relative "./cli"
+require_relative "./scraper"
+require_relative "./version"
 
 class Book
   attr_accessor :title, :author, :rank, :summary, :url
